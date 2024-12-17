@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Freezie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #ff7f50;
+            padding: 1em;
+            color: white;
+        }
+        nav {
+            margin: 1em;
+        }
+        nav select {
+            padding: 0.7em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #008cba;
+            color: white;
+            cursor: pointer;
+        }
+        .section {
+            display: none;
+            margin: 2em 0;
+        }
+        .section.active {
+            display: block;
+        }
+        .flavor {
+            margin: 1em 0;
+            text-align: left;
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: inline-block;
+            width: 250px;
+        }
+        .flavor img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+        .flavor button {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #ff4500;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .cart {
+            margin-top: 2em;
+            padding: 1em;
+            border: 1px solid #ccc;
+        }
+        footer {
+            margin-top: 2em;
+            background-color: #333;
+            color: white;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Welcome to Freezie!</h1>
+        <p>Our shop opens from 3:30 PM to 8:30 PM.</p>
+    </header>
+
+    <!-- Navigation Dropdown -->
+    <nav>
+        <select onchange="showSection(this.value)">
+            <option value="" disabled selected>Menu</option>
+            <option value="popular">Popular</option>
+            <option value="special">Special</option>
+            <option value="limited">Limited Edition</option>
+            <option value="cart">Your Cart</option>
+        </select>
+    </nav>
+
+    <!-- Popular Section -->
+    <div id="popular" class="section">
+        <h2>Popular Flavors</h2>
+        <div class="flavor">
+            <img src="vanilla.jpg" alt="Vanilla Ice Cream">
+            <h3>Vanilla</h3>
+            <p>Ingredients: Milk, Vanilla extract, Sugar</p>
+            <p><strong>Contains Milk</strong></p>
+            <p>Price: $3.00</p>
+            <button onclick="addToCart('Vanilla', 3.00)">Add to Cart</button>
+        </div>
+        <div class="flavor">
+            <img src="matcha.jpg" alt="Matcha Ice Cream">
+            <h3>Matcha</h3>
+            <p>Ingredients: Milk, Matcha powder, Sugar</p>
+            <p><strong>Contains Milk</strong></p>
+            <p>Price: $3.50</p>
+            <button onclick="addToCart('Matcha', 3.50)">Add to Cart</button>
+        </div>
+        <div class="flavor">
+            <img src="chocolate.jpg" alt="Chocolate Ice Cream">
+            <h3>Chocolate</h3>
+            <p>Ingredients: Milk, Cocoa powder, Sugar</p>
+            <p><strong>Contains Milk</strong></p>
+            <p>Price: $4.00</p>
+            <button onclick="addToCart('Chocolate', 4.00)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Special Section -->
+    <div id="special" class="section">
+        <h2>Special Flavors</h2>
+        <div class="flavor">
+            <img src="milo.jpg" alt="Milo Dinosaur Ice Cream">
+            <h3>Milo Dinosaur</h3>
+            <p>Ingredients: Milo, Milk, Sugar</p>
+            <p><strong>Contains Milk</strong></p>
+            <p>Price: $4.50</p>
+            <button onclick="addToCart('Milo Dinosaur', 4.50)">Add to Cart</button>
+        </div>
+        <div class="flavor">
+            <img src="gula_apong.jpg" alt="Gula Apong Ice Cream">
+            <h3>Gula Apong</h3>
+            <p>Ingredients: Gula Apong, Milk</p>
+            <p><strong>Contains Milk</strong></p>
+            <p>Price: $4.00</p>
+            <button onclick="addToCart('Gula Apong', 4.00)">Add to Cart</button>
+        </div>
+        <div class="flavor">
+            <img src="sea_salt.jpg" alt="Sea Salt Ice Cream">
+            <h3>Sea Salt</h3>
+            <p>Ingredients: Sea Salt, Milk, Sugar</p>
+            <p><strong>Contains Milk</strong></p>
+            <p>Price: $3.50</p>
+            <button onclick="addToCart('Sea Salt', 3.50)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Limited Edition Section -->
+    <div id="limited" class="section">
+        <h2>Limited Edition Flavors</h2>
+        <div class="flavor">
+            <img src="labubu.jpg" alt="Labubu Ice Cream">
+            <h3>Labubu</h3>
+            <p>Ingredients: Labubu, Mysterious Ingredients</p>
+            <p>Price: $5.00</p>
+            <button onclick="addToCart('Labubu', 5.00)">Add to Cart</button>
+        </div>
+        <div class="flavor">
+            <img src="pdiddy.jpg" alt="Pdiddy Ice Cream">
+            <h3>Pdiddy</h3>
+            <p>Ingredients: Baby Oil, Justin Bieber</p>
+            <p>Price: $6.00</p>
+            <button onclick="addToCart('Pdiddy', 6.00)">Add to Cart</button>
+        </div>
+        <div class="flavor">
+            <img src="mee_goreng.jpg" alt="Mee Goreng Ice Cream">
+            <h3>Mee Goreng</h3>
+            <p>Ingredients: Mee Goreng</p>
+            <p>Price: $6.50</p>
+            <button onclick="addToCart('Mee Goreng', 6.50)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <div id="cart" class="section">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p><strong>Total:</strong> $<span id="cart-total">0.00</span></p>
+        <button onclick="placeOrder()">Order</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Thank you for visiting Freezie! Come again!</p>
+    </footer>
+
+    <script>
+        let cart = [];
+        let total = 0;
+
+        function showSection(section) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            if (section) document.getElementById(section).classList.add('active');
+        }
+
+        function addToCart(flavor, price) {
+            cart.push({ flavor, price });
+            total += price;
+            updateCart();
+        }
+
+        function updateCart() {
+            const cartItems = document.getElementById('cart-items');
+            cartItems.innerHTML = '';
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.flavor} - $${item.price.toFixed(2)}`;
+                cartItems.appendChild(li);
+            });
+            document.getElementById('cart-total').textContent = total.toFixed(2);
+        }
+
+        function placeOrder() {
+            alert('Thank you for your order! Pay at the counter.');
+            cart = [];
+            total = 0;
+            updateCart();
+        }
+    </script>
+</body>
+</html>
